@@ -1,4 +1,4 @@
-// **Product Data (Replace with actual product data)**
+// **Product Data **
 const productCategories = [
     {
         name: "lcd",
@@ -8,7 +8,7 @@ const productCategories = [
             {name: "kit touch", price: 40, image: "images/lcd/[KIT.TOUCH.jpeg" },
             {name: "lmt lcd", price: 15, image: "images/lcd/[LMT070DAMFWA.NFD] LMT070DAMFWA-NFD LCD 7.jpeg" },
 
-            // Add more products
+          
         ],
     },
     {
@@ -17,7 +17,7 @@ const productCategories = [
             { name: "capacitor", price: 1, image: "images/electonics component/[C.jpeg" },
             { name: "resistors", price: 49.99, image: "images/electonics component/[CARBON0.25W.jpeg" },
             { name: "pic", price: 49.99, image: "images/electonics component/[PIC18F87K22.jpeg" },
-            // Add more products
+           
         ],
        
     },
@@ -27,9 +27,9 @@ const productCategories = [
         { name: "sensors kit", price: 1, image: "images/raspberrypi boards/[KIT.SENSOR.24IN1.jpeg" },
         { name: "raspberrypi pico", price: 49.99, image: "images/raspberrypi boards/[RPI.PICO.jpeg" },
         { name: "raspberrypi 4B", price: 49.99, image: "images/raspberrypi boards/[RPI4.BOARD.jpeg" },
-        // Add more products
+        
     ],
-    // Add more categories
+  
 }
 ];
 
@@ -125,11 +125,21 @@ function filterProducts(searchTerm) {
 
     displayProductCategories(filteredCategories);
 }
-
+// Event listener for search input
 searchInput.addEventListener("input", () => {
     const searchTerm = searchInput.value.trim();
-    filterProducts(searchTerm);
+    if (searchTerm === "") {
+        // If search term is empty, redirect to home page
+        window.location.href = "index.html";
+    } else if (/^\s*$/.test(searchTerm)) {
+        // If search term contains only whitespace characters, redirect to home page
+        window.location.href = "index.html";
+    } else {
+        // If search term is provided, filter products
+        filterProducts(searchTerm);
+    }
 });
+
 
 // Initial display of all products
 displayProductCategoriesWithRows(productCategories);
@@ -151,3 +161,28 @@ function generateCategoryButtons(categories) {
 
 // Generate category buttons on page load
 generateCategoryButtons(productCategories);
+
+
+
+
+
+
+
+
+// Scroll to Contact section
+document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' }); // Adjust block value for speed
+});
+
+// Scroll to About section
+document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth', block: 'start' }); // Adjust block value for speed
+});
+
+// Scroll to Product Categories section when Shop button is clicked
+document.querySelector('a[href="shop.html"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('.product-categories').scrollIntoView({ behavior: 'smooth', block: 'start' }); // Adjust block value for speed
+});
