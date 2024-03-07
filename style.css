@@ -79,12 +79,16 @@ body {
     color: #fff;
     cursor: pointer;
 }*/
+.search{
+    display:flex;
+    justify-content: center;
+}
 .search-bar {
     min-width: 400px;
     background-color: white;
     padding: 10px;
     border-radius: 200px;
-    display: flex;
+   display: flex;
 }
 
 #search-input {
@@ -98,12 +102,6 @@ body {
     color: lightgray;
 }
 
-/*#search-button {
-    color: #111;
-    cursor: pointer;
-    padding-right: 10px;
-    border: none;
-}*/
 #search-button {
     color: #111;
     cursor: pointer;
