@@ -84,7 +84,7 @@ body {
     justify-content: center;
 }
 .search-bar {
-    /*min-width: 400px;*/
+    min-width: 400px;
     background-color: white;
     padding: 10px;
     border-radius: 200px;
